@@ -1,11 +1,10 @@
 const cron = require("node-cron");
 const { sendMessageRemember } = require("../services/twilio.js");
 
-const everyDayAt12Am = "0 0 12 1/1 *";
-const everyDayAt17Pm = "0 0 17 1/1 *";
+const everyDayAt12PmAnd17Pm = "0 0 12,17 * * * *";
 
-const sendMessageAt12Am = cron.schedule(
-  everyDayAt12Am,
+const sendMessageAt12PmAnd17Pm = cron.schedule(
+  everyDayAt12PmAnd17Pm,
   () => {
     sendMessageRemember();
   },
@@ -14,14 +13,4 @@ const sendMessageAt12Am = cron.schedule(
   }
 );
 
-const sendMessageAt17Pm = cron.schedule(
-  everyDayAt17Pm,
-  () => {
-    sendMessageRemember();
-  },
-  {
-    scheduled: false,
-  }
-);
-
-module.exports = { sendMessageAt12Am, sendMessageAt17Pm };
+module.exports = { sendMessageAt12PmAnd17Pm };
