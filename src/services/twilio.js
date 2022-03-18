@@ -9,8 +9,8 @@ async function sendMessageRemember() {
     .create({
       body: `eai meu colega, vai bater o ponto hoje não? 
       https://luby-timesheet.azurewebsites.net/Bank/UpdateEmployee`,
-      from: "whatsapp:+14155238886",
-      to: "whatsapp:+5511993235002",
+      from: `whatsapp:${process.env.TWILIO_NUMBER}`,
+      to: `whatsapp:${process.env.YOUR_NUMBER}`,
     })
     .then((message) => console.log(message.sid))
     .done();
