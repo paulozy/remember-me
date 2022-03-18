@@ -6,7 +6,7 @@ const everyDayAt12Am = "0 0 12 1/1 *";
 const everyDayAt17Pm = "0 0 17 1/1 *";
 
 const sendMessageAt12Am = cron.schedule(
-  every5seconds,
+  everyDayAt12Am,
   () => {
     sendMessageRemember();
   },
